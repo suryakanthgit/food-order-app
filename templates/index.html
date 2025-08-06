@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Southside Restaurant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Southside Restaurant</h1>
+    <form action="/order" method="POST">
+        <div class="menu-container">
+            {% for item in menu %}
+            <div class="menu-item">
+                <h3>{{ item.name }}</h3>
+                <p>Price: Rs {{ item.price }}</p>
+                Quantity: <input type="number" name="quantity{{ item.id }}" value="0" min="0">
+            </div>
+            {% endfor %}
+        </div>
+        <button type="submit">Place Order</button>
+    </form>
+</body>
+</html>

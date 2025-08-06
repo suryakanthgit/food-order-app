@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Summary</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Your Order</h1>
+
+    {% if ordered_items %}
+    <ul>
+        {% for item in ordered_items %}
+        <li>{{ item.quantity }} x {{ item.name }} = Rs {{ item.total }}</li>
+        {% endfor %}
+    </ul>
+    <h3>Total Price: Rs {{ total }}</h3>
+    {% else %}
+    <p>No items were ordered.</p>
+    {% endif %}
+
+    <a href="/">Back to Menu</a>
+</body>
+</html>
