@@ -33,5 +33,5 @@ def order():
 
     return render_template("order.html", ordered_items=ordered_items, total=total)
 
-if _name_ == '_main_':
+if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
